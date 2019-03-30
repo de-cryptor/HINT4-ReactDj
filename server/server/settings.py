@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bms', #created at the time of postgres installation
         'USER': 'postgres',
-        'PASSWORD': 'postgres', #created at the time of password setup
+        'PASSWORD': 'db_password', #created at the time of password setup
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -105,7 +105,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'contact.reactdj@gmail.com'
 
 #Must generate specific password for your app in [gmail settings][1]
-EMAIL_HOST_PASSWORD = 'reactdj@2019'
+EMAIL_HOST_PASSWORD = 'email_password'
 
 EMAIL_PORT = 587
 
