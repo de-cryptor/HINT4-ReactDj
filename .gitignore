@@ -1,0 +1,19 @@
+#Exclude Files Types here
+*.pyc
+*.pdf
+*.csv
+
+#Exclude Specific Files here
+yarn-error.log
+yarn.lock
+/client/src/services/baseUrl.js
+/client/package-lock.json
+
+#Exclude Directories here
+node_modules/
+__pycache__/
+.docz/
+.vscode
+/server/static/
+/server/media/
+/client/assets/
