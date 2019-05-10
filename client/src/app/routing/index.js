@@ -11,17 +11,17 @@ import Support from '../pages/support';
 import Login from '../pages/login';
 import Logout from '../pages/logout';
 
-export default () => (
+export default ({ match }) => (
     <Switch>
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/articles" component={Articles.List} />
-        <Route exact path="/opportunities" component={Opportunities} />
-        <Route exact path="/support" component={Support} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/profile" component={User} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/logout" component={Logout} />
-        <Route render={() => <Redirect to="/home" />} />
+        <Route exact path={`${match.url}/home`} component={Home} />
+        <Route exact path={`${match.url}/articles`} component={Articles.List} />
+        {/* <Route exact path="/opportunities" component={Opportunities} />
+        <Route exact path="/support" component={Support} /> */}
+        <Route path={`${match.url}/about`} component={About} />
+        <Route path={`${match.url}/register`} component={Register} />
+        <Route path={`${match.url}/profile`} component={User} />
+        <Route path={`${match.url}/login`} component={Login} />
+        <Route path={`${match.url}/logout`} component={Logout} />
+        <Route render={() => <Redirect to="/react-dj/home" />} />
     </Switch>
 );

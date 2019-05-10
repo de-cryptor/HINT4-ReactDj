@@ -22,7 +22,7 @@ const Footer = ({ className, classes, ...props }) => {
             <Typography className={classes.text}>
                 <a className={classes.link} target="_blank" href="https://www.facebook.com/ReactDJ/">Facebook</a>
                 <a className={classes.link} target="_blank" href="https://medium.com/@srplabs.in">Medium</a>
-                <a className={classes.link} target="_blank" href="mailto:contact.reactdj@gmail.com">Mail us at contact.reactdj@gmail.com</a>
+                <a className={classes.link} target="_blank" href="mailto:srplabs.in@gmail.com">Mail us at srplabs.in@gmail.com</a>
             </Typography>
         </div>
     )

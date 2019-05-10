@@ -22,9 +22,9 @@ const developers = [
         image: '/static/images/jatin.jpg',
         role: "Backend Developer",
         links: {
-            github: "",
-            facebook: "",
-            linkedin: "",
+            github: "https://github.com/de-cryptor",
+            facebook: "https://www.facebook.com/jatin.goel.777",
+            linkedin: "https://www.linkedin.com/in/de-cryptor/",
         }
     },
     {
@@ -32,21 +32,21 @@ const developers = [
         image: '/static/images/maharshi.jpg',
         role: "Frontend Developer",
         links: {
-            github: "",
-            facebook: "",
-            linkedin: "",
+            github: "https://github.com/Strategist-Roy",
+            facebook: "https://www.facebook.com/strategist.roy",
+            linkedin: "https://www.linkedin.com/in/maharshiroy/",
         }
     },
-    // {
-    //     name: "Yogesh Gupta",
-    //     image: Yogesh,
-    //     role: "Frontend Developer",
-    //     links: {
-    //         github: "",
-    //         facebook: "",
-    //         linkedin: "",
-    //     }
-    // }
+    {
+        name: "Yogesh Gupta",
+        image: '/static/images/yogesh.jpg',
+        role: "Frontend Developer",
+        links: {
+            github: "https://github.com/Cryzek",
+            facebook: "https://www.facebook.com/Cryzek",
+            linkedin: "https://www.linkedin.com/in/yogesh-gupta-91009511a/",
+        }
+    }
 ]
 
 const About = ({classes, ...props}) => {
@@ -80,13 +80,13 @@ const About = ({classes, ...props}) => {
                                     <Typography className={classes.memberText}>{member.name}</Typography>
                                     <Typography className={classes.memberText}>{member.role}</Typography>
                                     <div className={classes.linksSection}>
-                                        <a href={member.links.github}>
+                                        <a href={member.links.github} target='_blank'>
                                             <img className={classes.linkImage} src={'/static/images/github-logo.svg'} style={{ color: 'blue' }} />
                                         </a>
-                                        <a href={member.links.facebook}>
+                                        <a href={member.links.facebook} target='_blank'>
                                             <img className={classes.linkImage} src={'/static/images/facebook-logo.svg'} />
                                         </a>
-                                        <a href={member.links.linkedin}>
+                                        <a href={member.links.linkedin} target='_blank'>
                                             <img className={classes.linkImage} src={'/static/images/linkedin-logo.svg'} />
                                         </a>
                                     </div>

@@ -65,11 +65,11 @@ class Appbar extends React.Component {
                         <img src={'/static/images/header-logo.png'} style={{ height: 56 }} />    
                     </Hidden>
                     <div className={classes.linksContainer}>
-                        <AppLink to="/home" label="Home" />
-                        <AppLink to="/articles" label="Articles" />
-                        <AppLink to="/opportunities" label="Opportunities" />
-                        <AppLink to="/support" label="Support" />
-                        <AppLink to="/about" label="About Us" />
+                        <AppLink to="/react-dj/home" label="Home" />
+                        <AppLink to="/react-dj/articles" label="Articles" />
+                        {/* <AppLink to="/react-dj/opportunities" label="Opportunities" /> */}
+                        {/* <AppLink to="/support" label="Support" /> */}
+                        <AppLink to="/react-dj/about" label="About Us" />
                     </div>
                     
                     {
@@ -95,10 +95,10 @@ class Appbar extends React.Component {
                                             <ClickAwayListener onClickAway={this.handleClose}>
                                             <MenuList>
                                                 <MenuItem onClick={this.handleClose}>
-                                                    <AppLink to="/profile" label="Profile" />
+                                                    <AppLink to="/react-dj/profile" label="Profile" />
                                                 </MenuItem>
                                                 <MenuItem onClick={this.handleClose}>
-                                                    <AppLink to="/logout" label="Logout" />
+                                                    <AppLink to="/react-dj/logout" label="Logout" />
                                                 </MenuItem>
                                             </MenuList>
                                             </ClickAwayListener>
@@ -107,7 +107,7 @@ class Appbar extends React.Component {
                                 )}
                             </Popper>
                         </div> :
-                        <Link to="/login">
+                        <Link to="/react-dj/login">
                             <IconButton>
                                 <Person className={classes.icon} />    
                             </IconButton>
