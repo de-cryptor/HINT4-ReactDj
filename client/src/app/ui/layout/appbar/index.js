@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import classnames from 'classnames';
 
 import { Link } from 'react-router-dom';
@@ -28,8 +28,6 @@ import {
 
 import AppLink from './link';
 import styles from './styles';
-
-import HeaderLogo from '../../../../../assets/images/header-logo.png';
 
 class Appbar extends React.Component {
     state = {
@@ -77,9 +75,9 @@ class Appbar extends React.Component {
             >
                 <Toolbar className={classes.toolbar}>
                     <Hidden smDown>
-                        {/* <AppLink to="/home" noUnderline label={<img src={'/static/images/header-logo.png'} style={{ height: 56 }} />} /> */}
+                        <img src={'/static/images/header-logo.png'} style={{ height: 56 }} />
                         <div className={classes.linksContainer}>
-                            <AppLink to="/home" label={<img src={HeaderLogo} style={{ height: 32 }} />} />
+                            <AppLink to="/home" label="Home" />
                             <AppLink to="/articles" label="Articles" />
                             {/* <AppLink to="/support" label="Support" /> */}
                             <AppLink to="/about" label="About Us" />
@@ -121,7 +119,7 @@ class Appbar extends React.Component {
                         }                
                     </Hidden>
                     <Hidden mdUp>
-                        <AppLink to="/home" noUnderline label={<img src={HeaderLogo} style={{ height: 56 }} />} style={{ flexGrow: 2 }} />
+                        <img src={'/static/images/header-logo.png'} style={{ height: 56 }} />
     
                         <IconButton style={{ flex: 1, justifyContent: 'flex-end' }} buttonRef={node => this.anchorElSmallScreen = node } onClick={this.handleSmallScreen}>
                             <MenuIcon className={classes.icon} />

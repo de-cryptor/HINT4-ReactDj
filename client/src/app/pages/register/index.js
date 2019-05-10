@@ -92,68 +92,30 @@ class Register extends React.Component {
 
             this.setState({ loading: true });
 
-            API.get('send_code/', {
-                params: { email: this.state.credentials.email }
-            }).then(response => {
-                this.setState({ loading: false });
-                const otpSwal = withReactContent(Swal);
-                const successSwal = withReactContent(Swal);
+            const successSwal = withReactContent(Swal);
 
-                let timerInterval;
-                
-                otpSwal.fire({
-                    title: 'Enter Verification Code',
-                    input: 'text',
-                    inputAttributes: {
-                        autocapitalize: 'off'
-                    },
-                    html: 'Dialog Box will close in <strong></strong> secs.',
-                    showCancelButton: true,
-                    confirmButtonText: 'Submit',
-                    showLoaderOnConfirm: true,
-                    timer: 30000,
-                    onBeforeOpen: () => {
-                        timerInterval = setInterval(() => {
-                            Swal.getContent().querySelector('strong')
-                                .textContent = Math.round(Swal.getTimerLeft()/1000.0)
-                        }, 100)
-                    },
-                    onClose: () => {
-                        clearInterval(timerInterval)
-                    },
-                    preConfirm: (code) => {
-                        return API.post('verify_code/', { email: this.state.credentials.email, code })
-                            .then(response => {
-                                this.setState({ loading: true });
-                                if (response.data.status == 'VERIFICATION FAILURE')
-                                    errorSwal.fire({ type: 'error', title: 'Incorrect Code !!', text: 'Retry Again' })
-                                else 
-                                    API.post('registration/', data).then(response => {
-                                        this.setState({ loading: false });
-                                        if (response.data.status == 'SUCCESS') {
-                                            this.setState({ 
-                                                credentials: {     //to counter onBlur check again (button click)
-                                                    ...this.state.credentials,
-                                                    username: ''
-                                                } 
-                                            });
-                                            successSwal.fire({
-                                                type: 'success',
-                                                text: 'Registration Successful!!',
-                                                timer: 3000,
-                                            }).then(ok => this.props.history.push('/home'));
-                                            setTimeout(() => {
-                                                this.props.history.push('/home')
-                                            }, 3000);
-                                        }
-                                        else
-                                            errorSwal.fire({ type: 'error', title: 'Some Error Occured !!', text: 'Retry Registration', timer: 3000 })
-                                    }).catch(error => errorSwal.fire({ type: 'error', title: 'Some Error Occured !!', text: 'Retry Registration', timer: 3000 }))
-                            })
-                            .catch(error => errorSwal.fire({ type: 'error', title: 'Error Occured !!', text: 'Retry Registration', timer: 3000 }))
-                    },
-                })            
-            }).catch(error => errorSwal.fire({ type: 'error', title: 'Error Occured !!', text: 'Retry Registration', timer: 3000 }));
+            API.post('registration/', data).then(response => {
+                if (response.data.status == 'SUCCESS') {
+                    this.setState({ 
+                        credentials: {     //to counter onBlur check again (button click)
+                            ...this.state.credentials,
+                            username: ''
+                        } 
+                    });
+                    successSwal.fire({
+                        type: 'success',
+                        text: 'Registration Successful!!',
+                        timer: 3000,
+                    }).then(ok => this.props.history.push('/login'));
+                    setTimeout(() => {
+                        this.props.history.push('/login')
+                    }, 3000);
+                }
+                else
+                    errorSwal.fire({ type: 'error', title: 'Some Error Occured !!', text: 'Retry Registration', timer: 3000 })
+            }).catch(error => errorSwal.fire({ type: 'error', title: 'Some Error Occured !!', text: 'Retry Registration', timer: 3000 }));
+            
+            this.setState({ loading: false });
         }
     }
 
