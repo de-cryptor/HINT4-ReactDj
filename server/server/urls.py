@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^api/docs/$', schema_view),
     url(r'^', include('utility.urls')),
     url(r'^', include('blogs.urls')),
+    url(r'^', generic.TemplateView.as_view(template_name='index.html')),
 ]
