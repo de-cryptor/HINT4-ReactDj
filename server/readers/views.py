@@ -103,7 +103,7 @@ class MarkReadListView(APIView):
 
 		API_STATUS = "SUCCESS"
 		data = json.loads(request.body.decode())
-		print(data)
+		
 		try :
 			user = User.objects.get(username=data['username'])
 			reader = Reader.objects.get(user=user)
