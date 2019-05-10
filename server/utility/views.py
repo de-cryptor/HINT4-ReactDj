@@ -21,10 +21,12 @@ from django.contrib.auth.models import User
 import json
 from time import gmtime, strftime
 import jwt
+from django.views.decorators.csrf import csrf_exempt
 
 
 class CustomAuthToken(ObtainAuthToken):
 
+	@csrf_exempt
     def post(self, request, *args, **kwargs):
     	try:
     		serializer = self.serializer_class(data=request.data,context={'request': request })

@@ -18,6 +18,7 @@ from server.settings import SECRET_KEY
 from time import gmtime, strftime
 import jwt
 import json
+from django.views.decorators.csrf import csrf_exempt
 
 class RegistrationListView(APIView):
 
@@ -44,6 +45,7 @@ class RegistrationListView(APIView):
 			API_STATUS = 'REQUEST FAILURE'
 			return Response({'status': API_STATUS})
 
+	@csrf_exempt
 	def post(self,request):
 
 		API_STATUS = "SUCCESS"
@@ -96,7 +98,7 @@ class MarkReadListView(APIView):
 			API_STATUS = 'REQUEST FAILURE'
 			return Response({'status': API_STATUS})
 
-
+	@csrf_exempt
 	def post(self,request):
 
 		API_STATUS = "SUCCESS"
