@@ -43,7 +43,7 @@ class Login extends React.Component {
             if (data.status == 'SUCCESS') {
                 data['username'] = this.state.credentials.username;
                 localStorage.setItem('login-data', JSON.stringify(data));
-                this.props.history.push("/react-dj/home");
+                this.props.history.push("/home");
             }
             else 
                 errorSwal.fire({
@@ -122,7 +122,7 @@ class Login extends React.Component {
                             </Button>
                         </form>
                             
-                        <Link to="/react-dj/register">
+                        <Link to="/register">
                             <Typography color="primary">Create New Account</Typography>
                         </Link>
                                 

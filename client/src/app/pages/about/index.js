@@ -24,7 +24,7 @@ const developers = [
         links: {
             github: "https://github.com/de-cryptor",
             facebook: "https://www.facebook.com/jatin.goel.777",
-            linkedin: "https://www.linkedin.com/in/de-cryptor/",
+            linkedin: "https://in.linkedin.com/in/de-cryptor",
         }
     },
     {
@@ -34,7 +34,7 @@ const developers = [
         links: {
             github: "https://github.com/Strategist-Roy",
             facebook: "https://www.facebook.com/strategist.roy",
-            linkedin: "https://www.linkedin.com/in/maharshiroy/",
+            linkedin: "https://in.linkedin.com/in/maharshiroy",
         }
     },
     {
@@ -44,7 +44,7 @@ const developers = [
         links: {
             github: "https://github.com/Cryzek",
             facebook: "https://www.facebook.com/Cryzek",
-            linkedin: "https://www.linkedin.com/in/yogesh-gupta-91009511a/",
+            linkedin: "https://in.linkedin.com/in/yogesh-gupta-91009511a",
         }
     }
 ]
@@ -61,7 +61,7 @@ const About = ({classes, ...props}) => {
                     Team from IIIT-Allahabad (Graduands 2019) was part of software development team of <a className={classes.anchor} target="_blank" href="https://aviral.iiita.ac.in/">Aviral Project</a> for the duration January 2018 to March 2019. The objective of the project was to develop Secured , 
                     Flexible and Robust Software for Admission, Assessment, 
                     Award Section based on Credit Choice Linked Continuous Assessment 
-                    and Award Ordinance wef from July 2018. We contributed in Design, Development and Deployment and learnt a lot 
+                    and Award Ordinance w.e.f. from July 2018. We contributed in Design, Development and Deployment and learnt a lot 
                     about cutting-edge technologies like Django and React JS. We want to share our experience through a series of tutorials on 
                     <a className={classes.anchor} target="_blank" href="https://medium.com/@srplabs.in"> Medium</a>
                 </Typography>
@@ -80,13 +80,13 @@ const About = ({classes, ...props}) => {
                                     <Typography className={classes.memberText}>{member.name}</Typography>
                                     <Typography className={classes.memberText}>{member.role}</Typography>
                                     <div className={classes.linksSection}>
-                                        <a href={member.links.github} target='_blank'>
-                                            <img className={classes.linkImage} src={'/static/images/github-logo.svg'} style={{ color: 'blue' }} />
+                                        <a href={member.links.github} target="_blank">
+                                            <img className={classes.linkImage} src={'/static/images/github-logo.svg'} />
                                         </a>
-                                        <a href={member.links.facebook} target='_blank'>
+                                        <a href={member.links.facebook} target="_blank">
                                             <img className={classes.linkImage} src={'/static/images/facebook-logo.svg'} />
                                         </a>
-                                        <a href={member.links.linkedin} target='_blank'>
+                                        <a href={member.links.linkedin} target="_blank">
                                             <img className={classes.linkImage} src={'/static/images/linkedin-logo.svg'} />
                                         </a>
                                     </div>

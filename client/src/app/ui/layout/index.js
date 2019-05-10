@@ -1,19 +1,45 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core';
+import {
+    withStyles, 
+    withTheme,
+    CssBaseline,
+    Hidden,
+} from '@material-ui/core';
 
-import Appbar from './appbar';
-import Footer from './footer';
+import Navbar from './navbar';
+import AppBar from './appbar';
 import Main from './main';
-
+import Footer from './footer';
 import styles from './styles';
 
-export default withStyles(styles)(({ classes, children }) => (
-    <div>
-        <Appbar />
-        
-        <Main>
-            {children}
-        </Main>
-        <Footer />
-    </div>
-))
+class Layout extends React.Component {    
+    render() {
+        const { 
+            classes,
+            children,
+        } = this.props;
+
+        return (
+            <div className={classes.root}>
+                
+                <CssBaseline />
+                
+                <Hidden xlDown>
+                    <Navbar className={classes.navbar} />
+                </Hidden>
+
+                <div className={classes.content}>
+                    <AppBar className={classes.appbar} />
+
+                    <Main className={classes.main}>
+                        {children}
+                    </Main>
+
+                    <Footer className={classes.footer} />
+                </div>
+            </div>
+        )
+    }
+}
+
+export default withTheme()(withStyles(styles)(Layout));

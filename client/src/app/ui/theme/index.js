@@ -5,8 +5,14 @@ import {
 
 import { light } from './themes';
 
-export default ({ children }) => (
-    <MuiThemeProvider theme={light}>
-        {children}
-    </MuiThemeProvider>
-);
+class ThemeProvider extends React.Component {
+    render() {
+        return (
+            <MuiThemeProvider theme={light}>
+                {this.props.children}
+            </MuiThemeProvider>
+        )
+    }
+}
+
+export default ThemeProvider;
