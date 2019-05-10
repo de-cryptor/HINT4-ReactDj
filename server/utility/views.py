@@ -21,28 +21,27 @@ from django.contrib.auth.models import User
 import json
 from time import gmtime, strftime
 import jwt
-from django.views.decorators.csrf import csrf_exempt
 
 
 class CustomAuthToken(ObtainAuthToken):
 
 	@csrf_exempt
-    def post(self, request, *args, **kwargs):
-    	try:
-    		serializer = self.serializer_class(data=request.data,context={'request': request })
-    		serializer.is_valid(raise_exception=True)
+	def post(self, request, *args, **kwargs):
+		try:
+			serializer = self.serializer_class(data=request.data,context={'request': request })
+			serializer.is_valid(raise_exception=True)
 
-    		user = serializer.validated_data['user']
-    		ip = get_client_ip(request)
-    		jwt_token = jwt.encode({ 'username': user.username,'ip': ip },SECRET_KEY,algorithm = 'HS256').decode('utf-8')
-    		last_login = strftime("%d-%m-%Y %H:%M:%S", gmtime())
+			user = serializer.validated_data['user']
+			ip = get_client_ip(request)
+			jwt_token = jwt.encode({ 'username': user.username,'ip': ip },SECRET_KEY,algorithm = 'HS256').decode('utf-8')
+			last_login = strftime("%d-%m-%Y %H:%M:%S", gmtime())
 
-    		group = Group.objects.get(user=user)
-    		return JsonResponse({ 'status': 'SUCCESS', 'token': jwt_token, 'group': group.name, 'ip':ip, 'session_id': 'JAN-19', 'last_login':last_login })
+			group = Group.objects.get(user=user)
+			return JsonResponse({ 'status': 'SUCCESS', 'token': jwt_token, 'group': group.name, 'ip':ip, 'session_id': 'JAN-19', 'last_login':last_login })
 
-    	except Exception as e:
-    		print(str(e))
-    		return Response({ 'status': 'LOGIN_FAILED' })
+		except Exception as e:
+			print(str(e))
+			return Response({ 'status': 'LOGIN_FAILED' })
 
 class GenderListView(APIView):
 
